@@ -1,0 +1,108 @@
+<odoo>
+<!--  <data>-->
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="person_list_view">
+      <field name="name">testmodule.person.list</field>
+      <field name="model">testmodule.person</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="first_name"/>
+          <field name="last_name"/>
+          <field name="full_name"/>
+          <field name="birthday"/>
+          <field name="age"/>
+          <field name="sex"/>
+          <field name="company_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="person_form_view">
+      <field name="name">testmodule.person.form</field>
+      <field name="model">testmodule.person</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="first_name"/>
+              <field name="last_name"/>
+              <field name="full_name"/>
+              <field name="birthday"/>
+              <field name="age"/>
+              <field name="sex"/>
+              <field name="company_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_person_profile">
+      <field name="name">Person profile</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">testmodule.person</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="person_root_menu" name="Person"/>
+    <menuitem id="person_sub_menu" parent="person_root_menu" name="Person profile"/>
+    <menuitem id="person_profile_menu" action="action_person_profile" parent="person_sub_menu"/>
+<!--
+    <record model="ir.ui.view" id="testmodule.list">
+      <field name="name">testmodule list</field>
+      <field name="model">testmodule.testmodule</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="testmodule.action_window">
+      <field name="name">testmodule window</field>
+      <field name="res_model">testmodule.testmodule</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="testmodule.action_server">
+      <field name="name">testmodule server</field>
+      <field name="model_id" ref="model_testmodule_testmodule"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="testmodule" id="testmodule.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="testmodule.menu_1" parent="testmodule.menu_root"/>
+    <menuitem name="Menu 2" id="testmodule.menu_2" parent="testmodule.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="testmodule.menu_1_list" parent="testmodule.menu_1"
+              action="testmodule.action_window"/>
+    <menuitem name="Server to list" id="testmodule" parent="testmodule.menu_2"
+              action="testmodule.action_server"/>
+-->
+<!--  </data>-->
+</odoo>
